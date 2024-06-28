@@ -8,15 +8,17 @@ const Home = () => {
 
   const handleNavigateToContactMePage = () => {
     navigate("/contact");
+    // window.open('https://drive.google.com/file/d/1GuYdJfv2CAewmcFnk3ZayjHLcMGkS2m3/view', '_blank');
+    // window.location.href = 'https://drive.google.com/file/d/1GuYdJfv2CAewmcFnk3ZayjHLcMGkS2m3/view';
   };
 
   return (
     <section id="home" className="home">
       <div className="home__text-wrapper">
         <h1>
-          Hello, I'm John
+          Hello, I'm VINEETH
           <br />
-          Front end developer
+          Full Stack Developer
         </h1>
       </div>
       <Animate

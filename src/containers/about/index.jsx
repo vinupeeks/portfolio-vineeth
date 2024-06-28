@@ -1,43 +1,54 @@
-import React from "react";
-import { BsInfoCircleFill } from "react-icons/bs";
-import PageHeaderContent from "../../components/pageHeaderContent";
+import React, { useState } from "react";
+import { FaGift } from "react-icons/fa";
 import { Animate } from "react-simple-animate";
+import PageHeaderContent from "../../components/pageHeaderContent";
 import "./styles.scss";
-import { DiApple, DiAndroid } from "react-icons/di";
 import { FaDev, FaDatabase } from "react-icons/fa";
-
+import { FaReact, FaNodeJs } from "react-icons/fa";
 const personalDetails = [
   {
     label: "Name",
-    value: "John Doe",
+    value: "Vineeth K C",
   },
   {
     label: "Age",
-    value: "27",
+    value: "22",
   },
   {
     label: "Address",
-    value: "India",
+    value: " Palakkad, Kerala",
   },
   {
     label: "Email",
-    value: "demo@example.com",
+    value: "vinuvineeth228@gmail.com",
   },
   {
     label: "Contact No",
-    value: "+11 3456789056",
+    value: "+91 8075 542 914",
   },
 ];
 
 const jobSummary =
-  "Seasoned and independent Front End Developer with 5 years of experience in blending the art of design with skill of programming to deliver an immersive and engaging user experience through efficient website development, proactive feature optimization, and relentless debugging. Very passionate about aesthetics and UI design. It is imperative that you provide a thorough and professional approach to your resume. As a Front End Developer you will be judged by your ability to use UX and UI concepts and follow design guidelines. It is about expressing your attention to detail and how you can help implement design ideas for your future employer";
+  "Seasoned and independent Full Stack Developer With 6 months of internship experience and a solid grasp of MongoDB, Express.js, React.js, and Node.js, I excel in crafting immersive web experiences. From proactive feature optimization to meticulous debugging, I prioritize user engagement. Passionate about UI design, I ensure adherence to design principles for seamless implementation. Ready to contribute my skills to your projects with enthusiasm and dedication.";
 
 const About = () => {
+  const [hrWishDisplayed, setHrWishDisplayed] = useState(false);
+
+  const toggleHrWish = () => {
+    setHrWishDisplayed((prev) => !prev);
+  };
+
   return (
     <section id="about" className="about">
       <PageHeaderContent
-        headerText="About Me"
-        icon={<BsInfoCircleFill size={40} />}
+        headerText="VINEETH KC"
+        icon={
+          <div className="iconContainer">
+            {/* {hrWishDisplayed && <div className="hrWishBox">Hello HR, Nice to meet you!</div>} */}
+            {hrWishDisplayed && <div className="hrWishBox">Hello, May you find a hidden gem!</div>}
+            <div><FaGift size={40} onClick={toggleHrWish} className="infoIcon" /></div>
+          </div>
+        }
       />
       <div className="about__content">
         <div className="about__content__personalWrapper">
@@ -52,7 +63,8 @@ const About = () => {
               transform: "translatex(0px)",
             }}
           >
-            <h3>Front End Developer</h3>
+            {/* <h3>Front End Developer</h3> */}
+            <h3>Full Stack Developer</h3>
             <p>{jobSummary}</p>
           </Animate>
 
@@ -94,16 +106,16 @@ const About = () => {
           >
             <div className="about__content__servicesWrapper__innerContent">
               <div>
-                <FaDev size={60} color="var( --yellow-theme-main-color)" />
-              </div>
-              <div>
-                <DiAndroid size={60} color="var( --yellow-theme-main-color)" />
+                <FaReact size={60} color="var( --yellow-theme-main-color)" />
               </div>
               <div>
                 <FaDatabase size={60} color="var( --yellow-theme-main-color)" />
               </div>
               <div>
-                <DiApple size={60} color="var( --yellow-theme-main-color)" />
+                <FaNodeJs size={60} color="var( --yellow-theme-main-color)" />
+              </div>
+              <div>
+                <FaDev size={60} color="var( --yellow-theme-main-color)" />
               </div>
             </div>
           </Animate>
@@ -112,4 +124,5 @@ const About = () => {
     </section>
   );
 };
+
 export default About;

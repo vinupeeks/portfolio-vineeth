@@ -1,97 +1,235 @@
-.resume{
-    height: 100%;
+// src/pages/Resume/styles.scss
+
+:root {
+  --main-bg-color: #1d1d1d;
+  --accent-color: #c9b737;
+  --text-color: #ffffff;
+  --button-hover-bg: #b3a130;
+  --yellow-theme-main-color: #c9b737;
+  --yellow-theme-sub-text-color: #ffffff;
 }
 
-.timeline{
+.resume {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+.iconContainer {
+  position: relative;
+
+  .hrWishBox {
+    position: static;
+    top: 50%;
+    right: calc(100% + 10px); /* Position to the left of the gift box */
+    transform: translateY(-50%);
+    padding: 8px;
+    background-color: var(--yellow-theme-main-color);
+    border: 2px solid var(--yellow-theme-main-color);
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333;
+  }
+
+  .infoIcon {
+    cursor: pointer;
+  }
+}
+.timelineContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+  gap: 20px;
+}
+
+.timeline__experience,
+.timeline__education {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__header-text {
+    display: inline-block;
+    color: var(--yellow-theme-sub-text-color);
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1rem;
+    letter-spacing: 0.5px;
+    position: relative;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border-bottom: 2px solid var(--yellow-theme-main-color);
+  }
+
+  &__header-text::before,
+  &__header-text::after {
+    position: absolute;
+    content: '';
+    width: 2px;
+    height: 5px;
+    background-color: var(--yellow-theme-main-color);
+    bottom: -1px;
+  }
+
+  &__header-text::before {
+    left: 0;
+  }
+
+  &__header-text::after {
+    right: 0;
+  }
+
+  &__vertical-timeline-element {
+    padding: 0px 0px 30px 0px;
+
+    &:last-child {
+      padding-bottom: 0px;
+    }
+  }
+
+  .vertical-timeline-element-title-wrapper {
     display: flex;
-    width: 100%;
-    padding: 20px;
+    align-items: center;
 
-    &__experience, &__education{
-        width: 50%;
-        gap: 2rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        &__header-text{
-            display: inline-block;
-            color: var(--yellow-theme-sub-text-color);
-            font-size: 22px;
-            font-weight: 700;
-            line-height: 1rem;
-            letter-spacing: 0.5px;
-            position: relative;
-            text-transform: uppercase;
-            padding: 5px 10px;
-            border-bottom: 2px solid var(--yellow-theme-main-color);
-        }
-
-        &__header-text::before , &__header-text::after{
-            position: absolute;
-            content: '';
-            width: 2px;
-            height: 5px;
-            background-color: var(--yellow-theme-main-color);
-            bottom: -1px;
-        }
-
-        &__header-text::before{
-            left: 0;
-        }
-
-        &__header-text::after{
-            right: 0;
-        }
-
-        &__vertical-timeline-element{
-            padding: 0px 0px 30px 0px;
-
-            &:last-child{
-                padding-bottom: 0px;
-            }
-        }
-        .vertical-timeline-element-title-wrapper{
-            display: flex;
-            align-items: center;
-
-            h3,h4{
-                font-size: 16px;
-            }
-
-            h4{
-                margin-left: 8px;
-            }
-
-
-        }
-
-        .vertical-timeline-element-title-wrapper-description{
-            font-size: 18px;
-        }
-
-        .vertical-timeline-element-content{
-            box-shadow: none;
-        }
-
-        .vertical-timeline-element-content-arrow{
-            display: none;
-        }
-
-        .vertical-timeline-element-date{
-            opacity: 1;
-            color: var(--yellow-theme-sub-text-color);
-            font-size: 18px;
-        }
+    h3,
+    h4 {
+      font-size: 16px;
     }
+
+    h4 {
+      margin-left: 8px;
+    }
+  }
+
+  .vertical-timeline-element-title-wrapper-description {
+    font-size: 18px;
+  }
+
+  .vertical-timeline-element-content {
+    box-shadow: none;
+  }
+
+  .vertical-timeline-element-content-arrow {
+    display: none;
+  }
+
+  .vertical-timeline-element-date {
+    opacity: 1;
+    color: var(--yellow-theme-sub-text-color);
+    font-size: 18px;
+  }
 }
 
-@media only screen and (max-width : 768px){
-    .timeline{
-        flex-direction: column;
-        &__experience, &__education{
-            width: 100%;
-            gap: 2rem;
-        }
+.resumeButtonContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 30px; // Adjust to fit your layout needs
+}
+
+.resumeButton {
+  background: var(--main-bg-color);
+  border: 2px solid var(--accent-color);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    background: var(--accent-color);
+    color: var(--main-bg-color);
+
+    .resumeIcon {
+      color: var(--main-bg-color);
     }
+
+    .resumeText {
+      background: var(--main-bg-color);
+      color: var(--accent-color);
+    }
+  }
+
+  .resumeIcon {
+    font-size: 50px;
+    color: var(--accent-color);
+    transition: color 0.3s, transform 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .resumeText {
+    display: block;
+    background: var(--accent-color);
+    color: var(--main-bg-color);
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s;
+    font-size: 1.4rem;
+    margin-top: 10px;
+
+    &:hover {
+      background: var(--button-hover-bg);
+      transform: scale(1.05);
+    }
+  }
+}
+
+.hrWishContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background-color: var(--yellow-theme-main-color);
+  font-weight: 700;
+  border-radius: 5px;
+  margin-bottom: 20px;
+
+  .hrWish {
+    margin-bottom: 20px;
+    font-size: 2.8rem; /* Default font-size */
+
+    @media (max-width: 1200px) {
+      font-size: 2.4rem; /* For screens less than 1200px */
+    }
+
+    @media (max-width: 992px) {
+      font-size: 2.2rem; /* For screens less than 992px */
+    }
+
+    @media (max-width: 768px) {
+      font-size: 2rem; /* For screens less than 768px */
+    }
+
+    @media (max-width: 576px) {
+      font-size: 1.8rem; /* For screens less than 576px */
+    }
+  }
+
+  .infoIcon {
+    align-self: center;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .timelineContainer {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
 }

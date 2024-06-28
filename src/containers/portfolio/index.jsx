@@ -1,29 +1,45 @@
 import React from "react";
 import PageHeaderContent from "../../components/pageHeaderContent";
-import { BsInfoCircleFill } from "react-icons/bs";
-import ImageOne from "../../images/image1.jpg";
-import ImageTwo from "../../images/image2.jpg";
+// import { FaGift } from "react-icons/fa";
+import { FaLaptopCode } from "react-icons/fa";
+// import ImageOne from "../../images/image1.jpg";
+import ImageTwo from "../../images/image2.png";
 import ImageThree from "../../images/image3.jpg";
 import ImageFour from "../../images/image4.jpg";
 import ImageFive from "../../images/image5.jpg";
+import ImageSix from "../../images/image6.png";
+import ImageSeven from "../../images/image7.jpg";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import "./styles.scss";
 import { useState } from "react";
 
 const portfolioData = [
   {
     id: 2,
-    name: "Ecommerce",
-    image: ImageOne,
-    link: "",
-  },
-  {
-    id: 3,
-    name: "Notes App",
+    name: "Books Store App",
     link: "",
     image: ImageTwo,
   },
   {
+    id: 3,
+    name: "Cofee Shop design",
+    image: ImageFive,
+    link: "",
+  },
+  {
     id: 2,
+    name: "Translator App",
+    image: ImageSeven,
+    link: "https://vinupeeks-translator-wb.netlify.app/",
+  },
+  {
+    id: 2,
+    name: "Ecommerce",
+    image: ImageSix,
+    link: "",
+  },
+  {
+    id: 3,
     name: "Supplier Design",
     image: ImageThree,
     link: "",
@@ -32,13 +48,6 @@ const portfolioData = [
     id: 2,
     name: "Todo App",
     image: ImageFour,
-
-    link: "",
-  },
-  {
-    id: 3,
-    name: "Shopping cart design",
-    image: ImageFive,
     link: "",
   },
 ];
@@ -50,7 +59,7 @@ const filterData = [
   },
   {
     filterId: 2,
-    label: "Developement",
+    label: "Development",
   },
   {
     filterId: 3,
@@ -59,8 +68,13 @@ const filterData = [
 ];
 
 const Portfolio = () => {
-  const [filteredvalue, setFilteredValue] = useState(1);
+  const [filteredValue, setFilteredValue] = useState(1);
   const [hoveredValue, setHoveredValue] = useState(null);
+  const [hrWishDisplayed, setHrWishDisplayed] = useState(false);
+
+  const toggleHrWish = () => {
+    setHrWishDisplayed((prev) => !prev);
+  };
 
   function handleFilter(currentId) {
     setFilteredValue(currentId);
@@ -70,28 +84,27 @@ const Portfolio = () => {
     setHoveredValue(index);
   }
 
-  console.log("====================================");
-  console.log(hoveredValue);
-  console.log("====================================");
-
   const filteredItems =
-    filteredvalue === 1
+    filteredValue === 1
       ? portfolioData
-      : portfolioData.filter((item) => item.id === filteredvalue);
-
-  console.log(filteredItems);
+      : portfolioData.filter((item) => item.id === filteredValue);
 
   return (
     <section id="portfolio" className="portfolio">
       <PageHeaderContent
         headerText="My Portfolio"
-        icon={<BsInfoCircleFill size={40} />}
+        icon={
+          <div className="iconContainer">
+            {hrWishDisplayed && <div className="hrWishBox">Developing a billing software</div>}
+            <div><FaLaptopCode size={40} onClick={toggleHrWish} className="infoIcon" /></div>
+          </div>
+        }
       />
       <div className="portfolio__content">
         <ul className="portfolio__content__filter">
           {filterData.map((item) => (
             <li
-              className={item.filterId === filteredvalue ? "active" : ""}
+              className={item.filterId === filteredValue ? "active" : ""}
               onClick={() => handleFilter(item.filterId)}
               key={item.filterId}
             >
@@ -108,15 +121,17 @@ const Portfolio = () => {
               onMouseLeave={() => handleHover(null)}
             >
               <div className="portfolio__content__cards__item__img-wrapper">
-                <a>
-                  <img alt="dummy data" src={item.image} />
-                </a>
+                {/* <a href="javascript:void(0)"> */}
+                  <LazyLoadImage alt="dummy data" src={item.image} />
+                {/* </a> */}
               </div>
               <div className="overlay">
                 {index === hoveredValue && (
                   <div>
                     <p>{item.name}</p>
-                    <button>Visit</button>
+                    {/* <a href={item.link} target="_blank" rel="noopener noreferrer"> */}
+                    {/* <button>Visit</button> */}
+                    {/* </a> */}
                   </div>
                 )}
               </div>
@@ -127,4 +142,5 @@ const Portfolio = () => {
     </section>
   );
 };
+
 export default Portfolio;

@@ -1,42 +1,46 @@
 export const data = {
     experience: [
       {
-        title: "Consultant",
-        subTitle: "Miami, FL",
+        title: "Mern Stack Intern",
+        subTitle: "Soften Technologies Cochin.",
         description:
-          " User Experience, Visual Design",
+          "Web development, Databases, Full stack developement",
+          Date: '2023 - 2024',
       },
       {
-        title: "Senior Consultant",
-        subTitle: "London, UK",
+        title: "Biller",
+        subTitle: "SOUQI Hyper Marcket, Cherpulassery, Palakkad.",
         description:
-          "Web development, Databases, Backend developement",
+          "precision and promptness, ensuring seamless financial transactions",
+          Date: '2024 - Present',
       },
-      {
-        title: "Project Manager",
-        subTitle: "Bangalore, INDIA",
-        description:
-          "Creative Direction Project Management, Team Leading",
-      },
+      // {
+      //   title: "Project Manager",
+      //   subTitle: "Bangalore, INDIA",
+      //   description:
+      //     "Creative Direction Project Management, Team Leading",
+      // },
     ],
     education: [
+      // {
+      //   title: "Secondary",
+      //   subTitle: "ABC School",
+      //   description:
+      //     "10th Grade",
+      // },
       {
-        title: "Secondary",
-        subTitle: "ABC School",
+        title: "Govt Vellinezhi ",
+        subTitle: " Higher Secondary of higher education.",
         description:
-          "10th Grade",
+          "12th Grade in Commerce",
+          Date: '2017 - 2019',
       },
       {
-        title: "Higher Secondary",
-        subTitle: "ABC School of higher education",
-        description:
-          "12th Grade in Science",
-      },
-      {
-        title: "B.Tech",
-        subTitle: "XYZ institute of technology",
+        title: "Computer Hardware Engineering,",
+        subTitle: "Govt Polytechnic College Palakkad.",
         description:
           "Bachelor of technology in computer science",
+          Date: '2019 - 2022',
       },
     ],
   };
